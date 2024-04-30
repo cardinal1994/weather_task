@@ -5,8 +5,9 @@ import 'package:weather_task/models/failure.dart';
 import 'package:weather_task/models/weather.dart';
 
 abstract class WeatherRepository {
-  Future<Either<Failure, CityWeather>> getCityWeatherInfo(
-      {required String cityName});
+  Future<Either<Failure, CityWeather>> getCityWeatherInfo({
+    required String cityName,
+  });
 }
 
 base class WeatherRepositoryImpl implements WeatherRepository {
