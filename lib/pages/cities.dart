@@ -22,17 +22,15 @@ class Cities extends StatelessWidget {
               final weather = state.cities[state.names[index]];
               return InkWell(
                 onTap: () {
-                  context.read<WeatherBloc>().add(
-                        WeatherEvent.loadDetailsForCity(
-                          city: state.names[index],
-                        ),
-                      );
-
                   /// Add all pages to navigator with named routes
                   /// This is simple code
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Details()),
+                    MaterialPageRoute(
+                      builder: (context) => Details(
+                        city: state.names[index],
+                      ),
+                    ),
                   );
                 },
                 child: ListTile(

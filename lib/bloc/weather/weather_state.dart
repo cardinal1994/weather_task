@@ -4,7 +4,6 @@ part of 'weather_bloc.dart';
 class WeatherState with _$WeatherState {
   factory WeatherState({
     @Default(BlocStatus.initial) BlocStatus status,
-    @Default(Constants.empty) String selectedCity,
     @Default({
       'London': null,
       'Paris': null,
@@ -12,7 +11,6 @@ class WeatherState with _$WeatherState {
       'Praha': null,
     })
     Map<String, CityWeather?> cities,
-    Failure? failure,
   }) = _WeatherState;
 
   WeatherState._();

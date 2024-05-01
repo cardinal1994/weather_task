@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:weather_task/bloc/details/details_bloc.dart';
 import 'package:weather_task/bloc/weather/weather_bloc.dart';
 import 'package:weather_task/data_sources/weather_data_source.dart';
 import 'package:weather_task/repositories/weather_repository.dart';
@@ -37,7 +38,10 @@ Future<void> setup() async {
     ),
   );
   sl.registerLazySingleton<WeatherBloc>(
-    () => WeatherBloc(weatherRepository: sl()),
+    () => WeatherBloc(),
+  );
+  sl.registerFactory<DetailsBloc>(
+    () => DetailsBloc(weatherRepository: sl(), weatherBloc: sl()),
   );
 
   sl.registerLazySingleton(

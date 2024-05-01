@@ -17,35 +17,39 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$WeatherEvent {
   String get city => throw _privateConstructorUsedError;
+  CityWeather get cityWeather => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String city) loadDetailsForCity,
+    required TResult Function(String city, CityWeather cityWeather)
+        updateWeatherByCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String city)? loadDetailsForCity,
+    TResult? Function(String city, CityWeather cityWeather)?
+        updateWeatherByCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String city)? loadDetailsForCity,
+    TResult Function(String city, CityWeather cityWeather)? updateWeatherByCity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadDetailsEvent value) loadDetailsForCity,
+    required TResult Function(_UpdateWeatherByCityEvent value)
+        updateWeatherByCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadDetailsEvent value)? loadDetailsForCity,
+    TResult? Function(_UpdateWeatherByCityEvent value)? updateWeatherByCity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadDetailsEvent value)? loadDetailsForCity,
+    TResult Function(_UpdateWeatherByCityEvent value)? updateWeatherByCity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +65,9 @@ abstract class $WeatherEventCopyWith<$Res> {
           WeatherEvent value, $Res Function(WeatherEvent) then) =
       _$WeatherEventCopyWithImpl<$Res, WeatherEvent>;
   @useResult
-  $Res call({String city});
+  $Res call({String city, CityWeather cityWeather});
+
+  $CityWeatherCopyWith<$Res> get cityWeather;
 }
 
 /// @nodoc
@@ -78,104 +84,134 @@ class _$WeatherEventCopyWithImpl<$Res, $Val extends WeatherEvent>
   @override
   $Res call({
     Object? city = null,
+    Object? cityWeather = null,
   }) {
     return _then(_value.copyWith(
       city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
+      cityWeather: null == cityWeather
+          ? _value.cityWeather
+          : cityWeather // ignore: cast_nullable_to_non_nullable
+              as CityWeather,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CityWeatherCopyWith<$Res> get cityWeather {
+    return $CityWeatherCopyWith<$Res>(_value.cityWeather, (value) {
+      return _then(_value.copyWith(cityWeather: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$LoadDetailsEventImplCopyWith<$Res>
+abstract class _$$UpdateWeatherByCityEventImplCopyWith<$Res>
     implements $WeatherEventCopyWith<$Res> {
-  factory _$$LoadDetailsEventImplCopyWith(_$LoadDetailsEventImpl value,
-          $Res Function(_$LoadDetailsEventImpl) then) =
-      __$$LoadDetailsEventImplCopyWithImpl<$Res>;
+  factory _$$UpdateWeatherByCityEventImplCopyWith(
+          _$UpdateWeatherByCityEventImpl value,
+          $Res Function(_$UpdateWeatherByCityEventImpl) then) =
+      __$$UpdateWeatherByCityEventImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String city});
+  $Res call({String city, CityWeather cityWeather});
+
+  @override
+  $CityWeatherCopyWith<$Res> get cityWeather;
 }
 
 /// @nodoc
-class __$$LoadDetailsEventImplCopyWithImpl<$Res>
-    extends _$WeatherEventCopyWithImpl<$Res, _$LoadDetailsEventImpl>
-    implements _$$LoadDetailsEventImplCopyWith<$Res> {
-  __$$LoadDetailsEventImplCopyWithImpl(_$LoadDetailsEventImpl _value,
-      $Res Function(_$LoadDetailsEventImpl) _then)
+class __$$UpdateWeatherByCityEventImplCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$UpdateWeatherByCityEventImpl>
+    implements _$$UpdateWeatherByCityEventImplCopyWith<$Res> {
+  __$$UpdateWeatherByCityEventImplCopyWithImpl(
+      _$UpdateWeatherByCityEventImpl _value,
+      $Res Function(_$UpdateWeatherByCityEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? city = null,
+    Object? cityWeather = null,
   }) {
-    return _then(_$LoadDetailsEventImpl(
+    return _then(_$UpdateWeatherByCityEventImpl(
       city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
+      cityWeather: null == cityWeather
+          ? _value.cityWeather
+          : cityWeather // ignore: cast_nullable_to_non_nullable
+              as CityWeather,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoadDetailsEventImpl implements _LoadDetailsEvent {
-  const _$LoadDetailsEventImpl({required this.city});
+class _$UpdateWeatherByCityEventImpl implements _UpdateWeatherByCityEvent {
+  const _$UpdateWeatherByCityEventImpl(
+      {required this.city, required this.cityWeather});
 
   @override
   final String city;
+  @override
+  final CityWeather cityWeather;
 
   @override
   String toString() {
-    return 'WeatherEvent.loadDetailsForCity(city: $city)';
+    return 'WeatherEvent.updateWeatherByCity(city: $city, cityWeather: $cityWeather)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadDetailsEventImpl &&
-            (identical(other.city, city) || other.city == city));
+            other is _$UpdateWeatherByCityEventImpl &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.cityWeather, cityWeather) ||
+                other.cityWeather == cityWeather));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, city);
+  int get hashCode => Object.hash(runtimeType, city, cityWeather);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadDetailsEventImplCopyWith<_$LoadDetailsEventImpl> get copyWith =>
-      __$$LoadDetailsEventImplCopyWithImpl<_$LoadDetailsEventImpl>(
-          this, _$identity);
+  _$$UpdateWeatherByCityEventImplCopyWith<_$UpdateWeatherByCityEventImpl>
+      get copyWith => __$$UpdateWeatherByCityEventImplCopyWithImpl<
+          _$UpdateWeatherByCityEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String city) loadDetailsForCity,
+    required TResult Function(String city, CityWeather cityWeather)
+        updateWeatherByCity,
   }) {
-    return loadDetailsForCity(city);
+    return updateWeatherByCity(city, cityWeather);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String city)? loadDetailsForCity,
+    TResult? Function(String city, CityWeather cityWeather)?
+        updateWeatherByCity,
   }) {
-    return loadDetailsForCity?.call(city);
+    return updateWeatherByCity?.call(city, cityWeather);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String city)? loadDetailsForCity,
+    TResult Function(String city, CityWeather cityWeather)? updateWeatherByCity,
     required TResult orElse(),
   }) {
-    if (loadDetailsForCity != null) {
-      return loadDetailsForCity(city);
+    if (updateWeatherByCity != null) {
+      return updateWeatherByCity(city, cityWeather);
     }
     return orElse();
   }
@@ -183,50 +219,52 @@ class _$LoadDetailsEventImpl implements _LoadDetailsEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadDetailsEvent value) loadDetailsForCity,
+    required TResult Function(_UpdateWeatherByCityEvent value)
+        updateWeatherByCity,
   }) {
-    return loadDetailsForCity(this);
+    return updateWeatherByCity(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadDetailsEvent value)? loadDetailsForCity,
+    TResult? Function(_UpdateWeatherByCityEvent value)? updateWeatherByCity,
   }) {
-    return loadDetailsForCity?.call(this);
+    return updateWeatherByCity?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadDetailsEvent value)? loadDetailsForCity,
+    TResult Function(_UpdateWeatherByCityEvent value)? updateWeatherByCity,
     required TResult orElse(),
   }) {
-    if (loadDetailsForCity != null) {
-      return loadDetailsForCity(this);
+    if (updateWeatherByCity != null) {
+      return updateWeatherByCity(this);
     }
     return orElse();
   }
 }
 
-abstract class _LoadDetailsEvent implements WeatherEvent {
-  const factory _LoadDetailsEvent({required final String city}) =
-      _$LoadDetailsEventImpl;
+abstract class _UpdateWeatherByCityEvent implements WeatherEvent {
+  const factory _UpdateWeatherByCityEvent(
+      {required final String city,
+      required final CityWeather cityWeather}) = _$UpdateWeatherByCityEventImpl;
 
   @override
   String get city;
   @override
+  CityWeather get cityWeather;
+  @override
   @JsonKey(ignore: true)
-  _$$LoadDetailsEventImplCopyWith<_$LoadDetailsEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UpdateWeatherByCityEventImplCopyWith<_$UpdateWeatherByCityEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$WeatherState {
   BlocStatus get status => throw _privateConstructorUsedError;
-  String get selectedCity => throw _privateConstructorUsedError;
   Map<String, CityWeather?> get cities => throw _privateConstructorUsedError;
-  Failure? get failure => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WeatherStateCopyWith<WeatherState> get copyWith =>
@@ -239,13 +277,7 @@ abstract class $WeatherStateCopyWith<$Res> {
           WeatherState value, $Res Function(WeatherState) then) =
       _$WeatherStateCopyWithImpl<$Res, WeatherState>;
   @useResult
-  $Res call(
-      {BlocStatus status,
-      String selectedCity,
-      Map<String, CityWeather?> cities,
-      Failure? failure});
-
-  $FailureCopyWith<$Res>? get failure;
+  $Res call({BlocStatus status, Map<String, CityWeather?> cities});
 }
 
 /// @nodoc
@@ -262,40 +294,18 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
   @override
   $Res call({
     Object? status = null,
-    Object? selectedCity = null,
     Object? cities = null,
-    Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as BlocStatus,
-      selectedCity: null == selectedCity
-          ? _value.selectedCity
-          : selectedCity // ignore: cast_nullable_to_non_nullable
-              as String,
       cities: null == cities
           ? _value.cities
           : cities // ignore: cast_nullable_to_non_nullable
               as Map<String, CityWeather?>,
-      failure: freezed == failure
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as Failure?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $FailureCopyWith<$Res>? get failure {
-    if (_value.failure == null) {
-      return null;
-    }
-
-    return $FailureCopyWith<$Res>(_value.failure!, (value) {
-      return _then(_value.copyWith(failure: value) as $Val);
-    });
   }
 }
 
@@ -307,14 +317,7 @@ abstract class _$$WeatherStateImplCopyWith<$Res>
       __$$WeatherStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {BlocStatus status,
-      String selectedCity,
-      Map<String, CityWeather?> cities,
-      Failure? failure});
-
-  @override
-  $FailureCopyWith<$Res>? get failure;
+  $Res call({BlocStatus status, Map<String, CityWeather?> cities});
 }
 
 /// @nodoc
@@ -329,27 +332,17 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? selectedCity = null,
     Object? cities = null,
-    Object? failure = freezed,
   }) {
     return _then(_$WeatherStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as BlocStatus,
-      selectedCity: null == selectedCity
-          ? _value.selectedCity
-          : selectedCity // ignore: cast_nullable_to_non_nullable
-              as String,
       cities: null == cities
           ? _value._cities
           : cities // ignore: cast_nullable_to_non_nullable
               as Map<String, CityWeather?>,
-      failure: freezed == failure
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as Failure?,
     ));
   }
 }
@@ -359,23 +352,18 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
 class _$WeatherStateImpl extends _WeatherState {
   _$WeatherStateImpl(
       {this.status = BlocStatus.initial,
-      this.selectedCity = Constants.empty,
       final Map<String, CityWeather?> cities = const {
         'London': null,
         'Paris': null,
         'Madrid': null,
         'Praha': null
-      },
-      this.failure})
+      }})
       : _cities = cities,
         super._();
 
   @override
   @JsonKey()
   final BlocStatus status;
-  @override
-  @JsonKey()
-  final String selectedCity;
   final Map<String, CityWeather?> _cities;
   @override
   @JsonKey()
@@ -386,11 +374,8 @@ class _$WeatherStateImpl extends _WeatherState {
   }
 
   @override
-  final Failure? failure;
-
-  @override
   String toString() {
-    return 'WeatherState(status: $status, selectedCity: $selectedCity, cities: $cities, failure: $failure)';
+    return 'WeatherState(status: $status, cities: $cities)';
   }
 
   @override
@@ -399,15 +384,12 @@ class _$WeatherStateImpl extends _WeatherState {
         (other.runtimeType == runtimeType &&
             other is _$WeatherStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.selectedCity, selectedCity) ||
-                other.selectedCity == selectedCity) &&
-            const DeepCollectionEquality().equals(other._cities, _cities) &&
-            (identical(other.failure, failure) || other.failure == failure));
+            const DeepCollectionEquality().equals(other._cities, _cities));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, selectedCity,
-      const DeepCollectionEquality().hash(_cities), failure);
+  int get hashCode => Object.hash(
+      runtimeType, status, const DeepCollectionEquality().hash(_cities));
 
   @JsonKey(ignore: true)
   @override
@@ -419,19 +401,13 @@ class _$WeatherStateImpl extends _WeatherState {
 abstract class _WeatherState extends WeatherState {
   factory _WeatherState(
       {final BlocStatus status,
-      final String selectedCity,
-      final Map<String, CityWeather?> cities,
-      final Failure? failure}) = _$WeatherStateImpl;
+      final Map<String, CityWeather?> cities}) = _$WeatherStateImpl;
   _WeatherState._() : super._();
 
   @override
   BlocStatus get status;
   @override
-  String get selectedCity;
-  @override
   Map<String, CityWeather?> get cities;
-  @override
-  Failure? get failure;
   @override
   @JsonKey(ignore: true)
   _$$WeatherStateImplCopyWith<_$WeatherStateImpl> get copyWith =>
